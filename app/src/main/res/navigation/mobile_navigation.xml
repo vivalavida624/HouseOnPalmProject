@@ -22,4 +22,10 @@
         android:name="com.map08.houseonpalm.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_signin"
+        android:name="com.map08.houseonpalm.ui.singin.SignInFragment"
+        android:label="@string/sign_in"
+        tools:layout="@layout/fragment_sign_in" />
 </navigation>
