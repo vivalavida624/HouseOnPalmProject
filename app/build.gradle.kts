@@ -4,6 +4,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("com.google.gms.google-services")
+
 }
 
 tasks {
@@ -59,11 +60,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.rules)
+    androidTestImplementation(libs.androidx.runner)
 
     implementation(libs.firebase.ui.database)
-
-//    implementation(project(":internal:lintchecks"))
-//    implementation(project(":internal:chooserx"))
 
     implementation(libs.androidx.appcompat.v170)
     implementation(libs.androidx.recyclerview)
@@ -72,7 +72,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx.v277)
 
     // Import the Firebase BoM (see: https://firebase.google.com/docs/android/learn-more#bom)
-    implementation(libs.firebase.bom)
+    implementation(platform(libs.firebase.bom))
 
     // Firebase Realtime Database
     implementation(libs.firebase.database)
@@ -84,6 +84,4 @@ dependencies {
     implementation(libs.firebase.firestore)
 
 
-    androidTestImplementation(libs.androidx.rules)
-    androidTestImplementation(libs.androidx.runner)
 }

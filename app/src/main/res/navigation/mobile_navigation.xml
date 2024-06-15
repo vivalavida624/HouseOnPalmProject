@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.map08.houseonpalm.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_broker"
+        android:name="com.map08.houseonpalm.ui.broker.BrokerFragment"
+        android:label="@string/title_broker"
+        tools:layout="@layout/fragment_broker" />
 
     <fragment
         android:id="@+id/navigation_notifications"
