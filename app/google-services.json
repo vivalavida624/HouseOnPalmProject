@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "853375391536",
+    "project_id": "houseonpalm-62957",
+    "storage_bucket": "houseonpalm-62957.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853375391536:android:830f3a2c8ac69a28b71af5",
+        "android_client_info": {
+          "package_name": "com.map08.houseonpalm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853375391536-rdbdj51ckjr2uokvb0af9l2mbfl3tlhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfvBUTd8C38JO10rmzN1P23-nLMx3HeQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853375391536-rdbdj51ckjr2uokvb0af9l2mbfl3tlhm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
