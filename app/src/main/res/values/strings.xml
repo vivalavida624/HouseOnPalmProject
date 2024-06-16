@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HouseOnPalm</string>
     <string name="title_home">Home</string>
@@ -21,4 +22,5 @@
     <string name="heading_recent">Recent</string>
     <string name="heading_my_posts">My Posts</string>
     <string name="heading_my_top_posts">My Top Posts</string>
+    <string name="add_broker">Add Broker</string> <!-- 添加 add_broker -->
 </resources>

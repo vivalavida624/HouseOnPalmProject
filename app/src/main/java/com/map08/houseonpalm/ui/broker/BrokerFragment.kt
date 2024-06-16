@@ -2,6 +2,8 @@ package com.map08.houseonpalm.ui.broker
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,7 @@ import com.map08.houseonpalm.models.Broker
 class BrokerFragment : Fragment() {
 
     private val brokerViewModel: BrokerViewModel by viewModels()
+    private lateinit var adapter: BrokerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +31,7 @@ class BrokerFragment : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        val adapter = BrokerAdapter(
+        adapter = BrokerAdapter(
             onEdit = { broker -> showEditDialog(broker) },
             onDelete = { brokerId -> brokerViewModel.deleteBroker(brokerId) }
         )
@@ -40,9 +43,19 @@ class BrokerFragment : Fragment() {
             }
         })
 
+        val searchEditText: EditText = view.findViewById(R.id.search_broker)
+        searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterBrokers(s.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
         val fab: FloatingActionButton = view.findViewById(R.id.fab)
         fab.setOnClickListener {
-            // 添加一个Broker的逻辑
             showAddDialog()
         }
 
@@ -55,8 +68,6 @@ class BrokerFragment : Fragment() {
     }
 
     private fun showAddDialog() {
-        // 实现添加对话框
-        // 在对话框中收集用户输入，并调用 brokerViewModel.addBroker(newBroker)
         val builder = AlertDialog.Builder(context)
         val inflater = layoutInflater
         val dialogLayout = inflater.inflate(R.layout.dialog_add_broker, null)
@@ -80,8 +91,6 @@ class BrokerFragment : Fragment() {
     }
 
     private fun showEditDialog(broker: Broker) {
-        // 实现编辑对话框
-        // 在对话框中收集用户输入，并调用 brokerViewModel.updateBroker(updatedBroker)
         val builder = AlertDialog.Builder(context)
         val inflater = layoutInflater
         val dialogLayout = inflater.inflate(R.layout.dialog_add_broker, null)
@@ -106,5 +115,12 @@ class BrokerFragment : Fragment() {
             setView(dialogLayout)
             show()
         }
+    }
+
+    private fun filterBrokers(query: String) {
+        val filteredList = brokerViewModel.brokers.value?.filter {
+            it.name.contains(query, true) || it.email.contains(query, true) || it.phone.contains(query, true)
+        }
+        adapter.submitList(filteredList)
     }
 }
