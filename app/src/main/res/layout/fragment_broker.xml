@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.broker.BrokerFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/search_broker"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Hinted search text"
             android:padding="8dp"
-            android:background="@drawable/search_background"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"/>
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp"/>
+            <EditText
+                android:id="@+id/search_broker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Hinted search text"
+                android:padding="8dp"
+                android:background="@drawable/search_background"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="8dp"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="8dp"/>
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -40,4 +45,4 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
         android:contentDescription="@string/add_broker"/>
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
