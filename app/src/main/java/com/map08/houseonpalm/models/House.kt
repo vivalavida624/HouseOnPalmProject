@@ -6,5 +6,5 @@ data class House(
     val price: Double = 0.0,
     val isForSale: Boolean = false,
     val broken: String = "",
-    val imageUrl: String = "",
+    val imageUrl: String = ""
 )

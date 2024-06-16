@@ -18,14 +18,20 @@
         tools:layout="@layout/fragment_broker" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.map08.houseonpalm.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_favourite"
+        android:name="com.map08.houseonpalm.ui.favourite.FavouriteFragment"
+        android:label="@string/title_favourite"
+        tools:layout="@layout/fragment_favourite" />
 
     <fragment
-        android:id="@+id/navigation_signin"
-        android:name="com.map08.houseonpalm.ui.singin.SignInFragment"
-        android:label="@string/sign_in"
-        tools:layout="@layout/fragment_sign_in" />
+        android:id="@+id/navigation_calculator"
+        android:name="com.map08.houseonpalm.ui.notifications.NotificationsFragment"
+        android:label="@string/title_calculator"
+        tools:layout="@layout/fragment_calculator" />
+
+    <fragment
+        android:id="@+id/navigation_more"
+        android:name="com.map08.houseonpalm.ui.more.MoreFragment"
+        android:label="@string/title_more"
+        tools:layout="@layout/fragment_more" />
 </navigation>

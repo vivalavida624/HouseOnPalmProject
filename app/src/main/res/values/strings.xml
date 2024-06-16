@@ -2,7 +2,11 @@
     <string name="app_name">HouseOnPalm</string>
     <string name="title_home">Home</string>
     <string name="title_broker">Broker</string>
-    <string name="title_notifications">Notifications</string><string name="menu_login">Log in</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_calculator">Calculator</string>
+    <string name="title_more">More</string>
+    <string name="menu_login">Log in</string>
     <string name="menu_logout">Log out</string>
     <string name="login_label">Log In</string>
     <string name="email_label">Email</string>

@@ -1,49 +1,72 @@
 package com.map08.houseonpalm.repository
 
+import android.util.Log
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
+import com.map08.houseonpalm.models.Houses
 import com.map08.houseonpalm.models.House
 
 
 
 class HouseRepository {
 
-    private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private val housesRef: DatabaseReference = database.getReference("houses")
+    private val database = FirebaseFirestore.getInstance()
 
-    val houses = listOf(
-        House("123 Main St", 3, 250000.0, true, "None", "https://example.com/house1.jpg"),
-        House("456 Elm St", 4, 350000.0, false, "Leaky roof", "https://example.com/house2.jpg"),
-        House("789 Oak St", 2, 180000.0, true, "Cracked foundation", "https://example.com/house3.jpg"),
-        House("101 Pine Ave", 5, 500000.0, true, "None", "https://example.com/house4.jpg"),
-        House("202 Maple Blvd", 3, 280000.0, false, "Flooded basement", "https://example.com/house5.jpg")
-    )
+    fun addHouses(houses: House) {
+        val housesCollection = database.collection("houses")
+        val housesId = housesCollection.document().id
+        val housesWithId = house.copy(id = housesId)
 
-    // 以下是CRUD操作
-    // 添加新房屋
-    fun addHouse(house: House): DatabaseReference {
-        val key = housesRef.push().key ?: throw RuntimeException("Failed to push house to Firebase")
-        val houseRef = housesRef.child(key)
-        houseRef.setValue(house)
-        return houseRef
+        housesCollection.document(housesId).set(housesWithId)
+            .addOnSuccessListener {
+                Log.d(TAG, "Houses added successfully: $houses")
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error adding houses: $e")
+            }
     }
 
-    // 更新房屋
-    fun updateHouse(houseId: String, updatedHouse: House): DatabaseReference {
-        val houseRef = housesRef.child(houseId)
-        houseRef.setValue(updatedHouse)
-        return houseRef
+    fun gethouses(callback: (List<House>) -> Unit) {
+        database.collection("houses").get()
+            .addOnSuccessListener { result ->
+                val houses = mutableListOf<House>()
+                for (document in result) {
+                    document.toObject<House>()?.let { house ->
+                        houses.add(house)
+                    }
+                }
+                callback(houses)
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error getting houses: $e")
+            }
     }
 
-    // 删除房屋
-    fun deleteHouse(houseId: String): DatabaseReference {
-        val houseRef = housesRef.child(houseId)
-        houseRef.removeValue()
-        return houseRef
+    fun updateHouses(houses: House) {
+        database.collection("houses").document(houses.id).set(houses)
+            .addOnSuccessListener {
+                Log.d(TAG, "Houses updated successfully: ${houses.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error updating houses: $e")
+            }
     }
 
-    // 获取所有房屋
-    fun getAllHouses(): DatabaseReference {
-        return housesRef
+    fun deleteHouses(housesId: String) {
+        database.collection("houses").document(housesId).delete()
+            .addOnSuccessListener {
+                Log.d(TAG, "Houses deleted successfully: $housesId")
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error deleting houses: $e")
+            }
+
+
+    }
+
+    companion object {
+        private const val TAG = "HousesRepository"
     }
 }
