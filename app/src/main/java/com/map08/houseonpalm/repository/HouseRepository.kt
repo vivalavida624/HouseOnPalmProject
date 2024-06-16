@@ -1,34 +1,29 @@
 package com.map08.houseonpalm.repository
 
 import android.util.Log
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
-import com.map08.houseonpalm.models.Houses
 import com.map08.houseonpalm.models.House
-
-
 
 class HouseRepository {
 
     private val database = FirebaseFirestore.getInstance()
 
-    fun addHouses(houses: House) {
+    fun addHouse(house: House) {
         val housesCollection = database.collection("houses")
-        val housesId = housesCollection.document().id
-        val housesWithId = house.copy(id = housesId)
+        val houseId = housesCollection.document().id
+        val houseWithId = house.copy(id = houseId)
 
-        housesCollection.document(housesId).set(housesWithId)
+        housesCollection.document(houseId).set(houseWithId)
             .addOnSuccessListener {
-                Log.d(TAG, "Houses added successfully: $houses")
+                Log.d(TAG, "House added successfully: $house")
             }
             .addOnFailureListener { e ->
-                Log.e(TAG, "Error adding houses: $e")
+                Log.e(TAG, "Error adding house: $e")
             }
     }
 
-    fun gethouses(callback: (List<House>) -> Unit) {
+    fun getHouses(callback: (List<House>) -> Unit) {
         database.collection("houses").get()
             .addOnSuccessListener { result ->
                 val houses = mutableListOf<House>()
@@ -44,29 +39,27 @@ class HouseRepository {
             }
     }
 
-    fun updateHouses(houses: House) {
-        database.collection("houses").document(houses.id).set(houses)
+    fun updateHouse(house: House) {
+        database.collection("houses").document(house.id).set(house)
             .addOnSuccessListener {
-                Log.d(TAG, "Houses updated successfully: ${houses.id}")
+                Log.d(TAG, "House updated successfully: ${house.id}")
             }
             .addOnFailureListener { e ->
-                Log.e(TAG, "Error updating houses: $e")
+                Log.e(TAG, "Error updating house: $e")
             }
     }
 
-    fun deleteHouses(housesId: String) {
-        database.collection("houses").document(housesId).delete()
+    fun deleteHouse(houseId: String) {
+        database.collection("houses").document(houseId).delete()
             .addOnSuccessListener {
-                Log.d(TAG, "Houses deleted successfully: $housesId")
+                Log.d(TAG, "House deleted successfully: $houseId")
             }
             .addOnFailureListener { e ->
-                Log.e(TAG, "Error deleting houses: $e")
+                Log.e(TAG, "Error deleting house: $e")
             }
-
-
     }
 
     companion object {
-        private const val TAG = "HousesRepository"
+        private const val TAG = "HouseRepository"
     }
 }

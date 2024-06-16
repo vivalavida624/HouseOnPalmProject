@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_house">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.map08.houseonpalm.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_house"
+        android:name="com.map08.houseonpalm.ui.house.HouseFragment"
+        android:label="@string/title_house"
+        tools:layout="@layout/fragment_house" />
 
     <fragment
         android:id="@+id/navigation_broker"

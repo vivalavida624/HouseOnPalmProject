@@ -25,7 +25,7 @@ class BrokerFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_broker, container, false)
 
-        val recyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
+        val recyclerView: RecyclerView = view.findViewById(R.id.broker_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         val adapter = BrokerAdapter(
