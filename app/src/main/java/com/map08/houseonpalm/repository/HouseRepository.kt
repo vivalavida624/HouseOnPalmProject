@@ -5,7 +5,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
-import com.map08.houseonpalm.models.Houses
+
 import com.map08.houseonpalm.models.House
 
 
@@ -14,14 +14,14 @@ class HouseRepository {
 
     private val database = FirebaseFirestore.getInstance()
 
-    fun addHouses(houses: House) {
+    fun addHouse(house: House) {
         val housesCollection = database.collection("houses")
-        val housesId = housesCollection.document().id
-        val housesWithId = house.copy(id = housesId)
+        val houseId = housesCollection.document().id
+        val houseWithId = house.copy(id = houseId)
 
-        housesCollection.document(housesId).set(housesWithId)
+        housesCollection.document(houseId).set(houseWithId)
             .addOnSuccessListener {
-                Log.d(TAG, "Houses added successfully: $houses")
+                Log.d(TAG, "Houses added successfully: $house")
             }
             .addOnFailureListener { e ->
                 Log.e(TAG, "Error adding houses: $e")
