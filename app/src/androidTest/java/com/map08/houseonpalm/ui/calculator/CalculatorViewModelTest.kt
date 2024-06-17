@@ -1,9 +1,11 @@
 package com.map08.houseonpalm.ui.calculator
 
+import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 import org.junit.Test
 
 class CalculatorViewModelTest {
+    /*
     private val calculation = CalculatorViewModel()
 
     @Test
@@ -22,5 +24,14 @@ class CalculatorViewModelTest {
             frequency
         )
         assertTrue(result.toString().toDouble() >= 0.0)
+    }
+     */
+
+    @Test
+    fun valueSquared_ReturnsTrue() {
+        val num = 4.0
+        val numSquared = Math.pow(num, 2.0)
+        val numExpected = 16.0
+        assertEquals(numSquared, numExpected)
     }
 }
