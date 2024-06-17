@@ -1,6 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.calculator.CalculatorFragment">
 
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:padding="20dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textMonthlyPaymentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="Monthly Payment"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="159dp"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="224dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textMonthlyPaymentDisplay"
+                android:layout_width="243dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="$ 0"
+                android:textSize="34sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textSalePrice"
+                    android:layout_width="201dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Sale Price" />
+
+                <EditText
+                    android:id="@+id/editTextSalePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="viewEnd"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textDownPayment"
+                    android:layout_width="201dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Down Payment" />
+
+                <EditText
+                    android:id="@+id/editTextDownPayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="viewEnd"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textInterestRate"
+                    android:layout_width="201dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Interest Rate" />
+
+                <EditText
+                    android:id="@+id/editTextInterestRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="viewEnd"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textAmortization"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Amortization" />
+
+                    <TextView
+                        android:id="@+id/textAmortizationDisplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="25 years" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarAmortization"
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:min="5"
+                    android:max="30"
+                    android:progress="25"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textFrequency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Frequency" />
+
+                    <TextView
+                        android:id="@+id/textFrequencyDisplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Monthly" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:max="4"
+                    android:min="1"
+                    android:progress="3" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonCalculate"
+                    android:layout_width="183dp"
+                    android:layout_height="match_parent"
+                    android:text="Calculate Monthly Payment" />
+
+                <Button
+                    android:id="@+id/buttonRestart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Restart" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
