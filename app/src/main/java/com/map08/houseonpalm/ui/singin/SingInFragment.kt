@@ -116,6 +116,7 @@ class SignInFragment : BaseFragment() {
 
         // Go to MainFragment
 //        findNavController().navigate(R.id.action_SignInFragment_to_MainFragment)
+        findNavController().navigate(R.id.action_SignInFragment_to_AddItemsFragment)
     }
 
     private fun usernameFromEmail(email: String): String {

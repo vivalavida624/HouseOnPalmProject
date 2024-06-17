@@ -54,7 +54,7 @@ class BrokerFragment : Fragment() {
         brokerViewModel.fetchBrokers()
     }
 
-    private fun showAddDialog() {
+    fun showAddDialog() {
         // 实现添加对话框
         // 在对话框中收集用户输入，并调用 brokerViewModel.addBroker(newBroker)
         val builder = AlertDialog.Builder(context)

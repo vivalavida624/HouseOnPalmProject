@@ -2,13 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".HouseFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/house_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="618dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:scrollbars="vertical"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

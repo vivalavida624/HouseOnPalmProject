@@ -31,7 +31,41 @@
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.map08.houseonpalm.ui.more.MoreFragment"
+        android:name="com.map08.houseonpalm.ui.singin.SignInFragment"
         android:label="@string/title_more"
-        tools:layout="@layout/fragment_more" />
+        tools:layout="@layout/fragment_sign_in"/>
+    <action
+        android:id="@+id/action_SignInFragment_to_AddItemsFragment"
+        app:destination="@id/AddItemsFragment" />
+
+    <fragment
+        android:id="@+id/AddItemsFragment"
+        android:name="com.map08.houseonpalm.ui.admin.AddItemsFragment"
+        android:label="Add Items Fragment"
+        tools:layout="@layout/fragment_add_items">
+        <action
+            android:id="@+id/action_AddItemsFragment_to_HouseFragment"
+            app:destination="@id/HouseFragment" />
+        <action
+            android:id="@+id/action_AddItemsFragment_to_BrokerFragment"
+            app:destination="@id/BrokerFragment" />
+        <!-- Define fragment layout and other configurations -->
+    </fragment>
+
+    <fragment
+        android:id="@+id/HouseFragment"
+        android:name="com.map08.houseonpalm.ui.house.HouseFragment"
+        android:label="House Fragment"
+        tools:layout="@layout/fragment_house">
+        <!-- 添加其他可能需要的动作 -->
+    </fragment>
+
+    <fragment
+        android:id="@+id/BrokerFragment"
+        android:name="com.map08.houseonpalm.ui.broker.BrokerFragment"
+        android:label="Broker Fragment"
+        tools:layout="@layout/fragment_broker">
+        <!-- 添加其他可能需要的动作 -->
+    </fragment>
+
 </navigation>

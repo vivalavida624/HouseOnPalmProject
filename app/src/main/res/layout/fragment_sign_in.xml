@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/ic_dashboard_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -36,7 +36,7 @@
         android:id="@+id/fieldEmail"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:ellipsize="end"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
@@ -65,15 +65,12 @@
         android:id="@+id/buttonSignIn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="252dp"
+        android:layout_marginTop="68dp"
         android:text="@string/sign_in"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fieldPassword"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/fieldPassword" />
 
     <Button
         android:id="@+id/buttonSignUp"
