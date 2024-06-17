@@ -13,6 +13,9 @@ import com.map08.houseonpalm.ui.house.HouseFragment
 
 class AddItemsFragment : Fragment() {
 
+    private lateinit var houseFragment: HouseFragment
+    private lateinit var brokerFragment: BrokerFragment
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,6 +26,14 @@ class AddItemsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        houseFragment = HouseFragment()
+        brokerFragment = BrokerFragment()
+
+        childFragmentManager.beginTransaction()
+            .add(houseFragment, "HouseFragment")
+            .add(brokerFragment, "BrokerFragment")
+            .commitNow()
 
         // 在这里初始化视图和设置按钮点击事件等
         val addHouseButton: Button = view.findViewById(R.id.addHouseButton)
@@ -41,11 +52,19 @@ class AddItemsFragment : Fragment() {
 //        }
 
         addHouseButton.setOnClickListener {
-            findNavController().navigate(R.id.action_AddItemsFragment_to_HouseFragment)
+            houseFragment.showAddHouseDialog()
         }
 
         addBrokerButton.setOnClickListener {
-            findNavController().navigate(R.id.action_AddItemsFragment_to_BrokerFragment)
+            brokerFragment.showAddBrokerDialog()
         }
+
+//        addHouseButton.setOnClickListener {
+//            findNavController().navigate(R.id.action_AddItemsFragment_to_HouseFragment)
+//        }
+//
+//        addBrokerButton.setOnClickListener {
+//            findNavController().navigate(R.id.action_AddItemsFragment_to_BrokerFragment)
+//        }
     }
 }

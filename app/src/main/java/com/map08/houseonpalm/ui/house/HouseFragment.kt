@@ -42,7 +42,7 @@ class HouseFragment : Fragment() {
         val fab: FloatingActionButton = view.findViewById(R.id.fab)
         fab.setOnClickListener {
             // 添加一个House的逻辑
-            showAddDialog()
+            showAddHouseDialog()
         }
 
         return view
@@ -53,7 +53,7 @@ class HouseFragment : Fragment() {
         houseViewModel.fetchHouses()
     }
 
-    fun showAddDialog() {
+    fun showAddHouseDialog() {
         // 实现添加对话框
         // 在对话框中收集用户输入，并调用 houseViewModel.addHouse(newHouse)
         val builder = AlertDialog.Builder(context)

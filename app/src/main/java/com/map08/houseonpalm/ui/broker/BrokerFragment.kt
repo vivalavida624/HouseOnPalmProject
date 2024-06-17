@@ -43,7 +43,7 @@ class BrokerFragment : Fragment() {
         val fab: FloatingActionButton = view.findViewById(R.id.fab)
         fab.setOnClickListener {
             // 添加一个Broker的逻辑
-            showAddDialog()
+            showAddBrokerDialog()
         }
 
         return view
@@ -54,7 +54,7 @@ class BrokerFragment : Fragment() {
         brokerViewModel.fetchBrokers()
     }
 
-    fun showAddDialog() {
+    fun showAddBrokerDialog() {
         // 实现添加对话框
         // 在对话框中收集用户输入，并调用 brokerViewModel.addBroker(newBroker)
         val builder = AlertDialog.Builder(context)
