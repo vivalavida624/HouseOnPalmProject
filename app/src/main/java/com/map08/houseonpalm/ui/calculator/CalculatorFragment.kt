@@ -144,6 +144,12 @@ class CalculatorFragment(): Fragment() {
             if (salePriceNum <= 0.0 || downPaymentNum <= 0.0 || interestRateNum <= 0.0) {
                 val message: CharSequence = "No input value can be zero or negative!"
                 Toast.makeText(root.context, message, Toast.LENGTH_SHORT).show()
+            } else  if (salePriceNum <= downPaymentNum) {
+                val message: CharSequence = "Sale Price MUST be of higher value than the Down Payment!"
+                Toast.makeText(root.context, message, Toast.LENGTH_LONG).show()
+            } else if (downPaymentNum < salePriceNum / 10) {
+                val message: CharSequence = "Down Payment MUST be at least 10% of Sale Price"
+                Toast.makeText(root.context, message, Toast.LENGTH_LONG).show()
             } else {
                 val monthlyPay = calculatorViewModel.calcMonthlyPayment(
                     salePriceNum,
