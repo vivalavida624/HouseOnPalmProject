@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.map08.houseonpalm.R
 import com.map08.houseonpalm.ui.broker.BrokerFragment
 import com.map08.houseonpalm.ui.house.HouseFragment
@@ -15,6 +16,7 @@ class AddItemsFragment : Fragment() {
 
     private lateinit var houseFragment: HouseFragment
     private lateinit var brokerFragment: BrokerFragment
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +31,7 @@ class AddItemsFragment : Fragment() {
 
         houseFragment = HouseFragment()
         brokerFragment = BrokerFragment()
+        auth = FirebaseAuth.getInstance()
 
         childFragmentManager.beginTransaction()
             .add(houseFragment, "HouseFragment")
@@ -38,18 +41,7 @@ class AddItemsFragment : Fragment() {
         // 在这里初始化视图和设置按钮点击事件等
         val addHouseButton: Button = view.findViewById(R.id.addHouseButton)
         val addBrokerButton: Button = view.findViewById(R.id.addBrokerButton)
-
-//        addHouseButton.setOnClickListener {
-//             //显示添加房屋的对话框或导航到添加房屋的页面
-//            val houseFragment = HouseFragment()
-//            houseFragment.showAddDialog()
-//        }
-
-//        addBrokerButton.setOnClickListener {
-//            // 显示添加经纪人的对话框或导航到添加经纪人的页面
-//            val brokerFragment = BrokerFragment()
-//            brokerFragment.showAddDialog()
-//        }
+        val logOutButton: Button = view.findViewById(R.id.logOutButton)
 
         addHouseButton.setOnClickListener {
             houseFragment.showAddHouseDialog()
@@ -59,12 +51,11 @@ class AddItemsFragment : Fragment() {
             brokerFragment.showAddBrokerDialog()
         }
 
-//        addHouseButton.setOnClickListener {
-//            findNavController().navigate(R.id.action_AddItemsFragment_to_HouseFragment)
-//        }
-//
-//        addBrokerButton.setOnClickListener {
-//            findNavController().navigate(R.id.action_AddItemsFragment_to_BrokerFragment)
-//        }
+        logOutButton.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(R.id.action_AddItemsFragment_to_SignInFragment)
+        }
+
+
     }
 }

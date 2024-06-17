@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_AddItemsFragment_to_BrokerFragment"
             app:destination="@id/BrokerFragment" />
+        <action
+            android:id="@+id/action_AddItemsFragment_to_SignInFragment"
+            app:destination="@id/navigation_more" />
         <!-- Define fragment layout and other configurations -->
     </fragment>
 

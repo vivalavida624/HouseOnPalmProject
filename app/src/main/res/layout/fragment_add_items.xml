@@ -12,24 +12,37 @@
 
         <Button
             android:id="@+id/addHouseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="144dp"
+            android:layout_height="57dp"
             android:text="Add House"
             app:layout_constraintBottom_toTopOf="@+id/addBrokerButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintHorizontal_bias="0.144"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.262" />
+            app:layout_constraintVertical_bias="0.548" />
 
         <Button
             android:id="@+id/addBrokerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="404dp"
+            android:layout_width="144dp"
+            android:layout_height="57dp"
+            android:layout_marginBottom="440dp"
             android:text="Add Broker"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.142"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/logOutButton"
+            android:layout_width="144dp"
+            android:layout_height="57dp"
+            android:text="Log Out"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.475" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
