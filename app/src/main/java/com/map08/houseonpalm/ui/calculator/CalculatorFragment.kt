@@ -19,7 +19,6 @@ class CalculatorFragment(): Fragment() {
     private var _binding: FragmentCalculatorBinding? = null
     private val binding get() = _binding!!
 
-    
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
