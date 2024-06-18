@@ -37,8 +37,8 @@ class BrokerAdapter(
 
 //            itemView.edit_button.setOnClickListener { onEdit(broker) }
 //            itemView.delete_button.setOnClickListener { onDelete(broker.id) }
-            itemView.findViewById<TextView>(R.id.edit_button).setOnClickListener { onEdit(broker) }
-            itemView.findViewById<TextView>(R.id.delete_button).setOnClickListener { onDelete(broker.id) }
+//            itemView.findViewById<TextView>(R.id.edit_button).setOnClickListener { onEdit(broker) }
+//            itemView.findViewById<TextView>(R.id.delete_button).setOnClickListener { onDelete(broker.id) }
         }
     }
 

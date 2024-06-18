@@ -9,37 +9,48 @@
         android:id="@+id/broker_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"/>
+        android:text="Name"
+        android:textSize="26sp"/>
 
     <TextView
         android:id="@+id/broker_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"/>
+        android:text="Email"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/broker_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone"/>
+        android:text="Phone"
+        android:textSize="20sp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/edit_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Edit"/>
+<!--        <Button-->
+<!--            android:id="@+id/edit_button"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Edit"/>-->
 
-        <Button
-            android:id="@+id/delete_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete"/>
+<!--        <Button-->
+<!--            android:id="@+id/delete_button"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Delete"/>-->
     </LinearLayout>
 </LinearLayout>
